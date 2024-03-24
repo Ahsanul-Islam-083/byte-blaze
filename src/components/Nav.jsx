@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
 
@@ -22,15 +23,15 @@ const Nav = () => {
     console.log(theme);
 
     return (
-<div className="navbar bg-base-100 shadow-lg px-4 fixed z-10">
+<div className="navbar bg-base-100 shadow-lg px-4 sm:px-8 fixed z-10">
   <div className="flex-1">
     <a className="btn btn-ghost gap-0 text-secondary normal-case text-2xl">Byte<span className="text-primary">Blaze</span></a>
   </div>
-  <div className="flex-none">
-    <ul className="menu menu-horizontal font-bold px-1">
-      <li><a>Home</a></li>
-      <li className="text-primary"><a>Blogs</a></li>
-      <li><a>Bookmarks</a></li>
+  <div className="flex-none ">
+    <ul className="menu menu-horizontal px-1 hidden sm:flex gap-5 mr-3">
+      <NavLink to={'/'} className={({isActive})=> isActive?'text-primary font-bold':'font-bold'}>Home</NavLink>
+      <NavLink to={'/blogs'} className={({isActive})=> isActive?'text-primary font-bold':'font-bold'}>Blogs</NavLink>
+      <NavLink to={'/bookmarks'} className={({isActive})=> isActive?'text-primary font-bold':'font-bold'}>Bookmarks</NavLink>
     </ul>
     <label className="cursor-pointer grid place-items-center">
   <input 
